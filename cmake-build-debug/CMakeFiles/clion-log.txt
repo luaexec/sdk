@@ -1,0 +1,13 @@
+"C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2022.2.1/bin/ninja/win/ninja.exe" -G Ninja -S C:\Users\natha\Documents\projects\sdk -B C:\Users\natha\Documents\projects\sdk\cmake-build-debug
+-- Configuring done
+CMake Error at CMakeLists.txt:6 (add_library):
+  Cannot find source file:
+
+    library.cpp
+
+
+CMake Error at CMakeLists.txt:6 (add_library):
+  No SOURCES given to target: sdk
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.
