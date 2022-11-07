@@ -29,27 +29,32 @@
 #define IL inline
 #define FIL __forceinline
 #define SRT unsigned long __stdcall
-#define ERR std::runtime_error&
+#define ERR std::runtime_error
 #define IF(x) if (x)
+
+// hack.
+#include "other/other.h"
 
 // attachment.
 NS A {
+	using namespace std;
+
     IL HINSTANCE hinstDLL;
     IL bool SUCCESS{ false };
 
     SRT MAIN();
     SRT EXIT();
 
-    FIL void INIT(const std::string& title, const std::function<bool()>& fn)
+    FIL void INIT(const string& title, const function<bool()>& fn)
     {
         if (!fn())
-            throw std::runtime_error( tfm::format( "A::INIT->(%s).", title ) );
+            throw ERR( tfm::format( "A::INIT->(%s).", title ) );
     }
 
-    FIL void CATCH( const std::string& msg, bool exit )
+    FIL void CATCH( const string& msg, bool exit )
     {
         if ( !exit )
-            std::this_thread::sleep_for( std::chrono::milliseconds( 100 ) );
+            this_thread::sleep_for( chrono::milliseconds( 100 ) );
     }
 };
 

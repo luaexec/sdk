@@ -1,6 +1,6 @@
 #include "common.h"
 
-SRT A::MAIN()
+SRT A::MAIN( )
 {
     while ( !GetModuleHandleA("serverbrowser.dll") )
         std::this_thread::sleep_for( std::chrono::milliseconds( 200 ) );
@@ -8,7 +8,7 @@ SRT A::MAIN()
     // init.
     try
     {
-    } catch( ERR x )
+    } catch( ERR& x )
     {
         A::CATCH( x.what( ), GetAsyncKeyState(VK_END) );
     }
@@ -20,6 +20,11 @@ SRT A::MAIN()
     FreeLibraryAndExitThread( A::hinstDLL, 0 );
 }
 
+SRT A::EXIT( )
+{
+	return 0;
+}
+
 bool APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved )
 {
     // startup.
@@ -27,10 +32,10 @@ bool APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
     {
         A::hinstDLL = hModule;
         if ( !CreateThread( 0, 0, (LPTHREAD_START_ROUTINE)(A::MAIN), A::hinstDLL, 0, 0 ) )
-            return 0;
+            return false;
     }
     else if (ul_reason_for_call == DLL_PROCESS_DETACH)
         return A::EXIT();
 
-    return 1;
+    return true;
 }

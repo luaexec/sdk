@@ -1,4 +1,4 @@
-"C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2022.2.1/bin/ninja/win/ninja.exe" -G Ninja -S C:\Users\natha\Documents\projects\sdk -B C:\Users\natha\Documents\projects\sdk\cmake-build-debug
+"C:\Program Files\JetBrains\CLion 2022.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - NMake Makefiles" -S C:\Users\natha\Documents\GitHub\sdk -B C:\Users\natha\Documents\GitHub\sdk\cmake-build-debug
 -- Configuring done
 CMake Error at CMakeLists.txt:6 (add_library):
   Cannot find source file:
